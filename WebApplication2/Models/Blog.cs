@@ -1,22 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace WebApplication2.Models
 {
+    [Display(Name="Veggies")]
     public class Blog
     {
         public int Id { get; set; }
-        public int WordCount {
-            get {
-                // return some number of words based on text
-                int words = Text.Split(' ').Count();
-                return words;
-            }
-        }
+
+        [Display(Name="Caption")]
         public string Text { get; set; }
+        [Display(Name="Harvested On")]
         public DateTime PostedOn { get; set; }
     }
 
