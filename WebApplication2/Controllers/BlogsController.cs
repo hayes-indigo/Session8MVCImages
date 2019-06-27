@@ -13,9 +13,9 @@ namespace WebApplication2.Controllers
 {
     public class BlogsController : Controller
     {
-        private readonly BlogDbContext _context;
+        private readonly VeggieFaceContext _context;
 
-        public BlogsController(BlogDbContext context)
+        public BlogsController(VeggieFaceContext context)
         {
             _context = context;
         }
@@ -89,7 +89,7 @@ namespace WebApplication2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,WordCount,Text,PostedOn")] Blog blog)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,WordCount,Text,PostedOn,ImageFilePath")] Blog blog)
         {
             if (id != blog.Id)
             {

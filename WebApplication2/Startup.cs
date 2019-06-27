@@ -32,7 +32,7 @@ namespace WebApplication2
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<Models.BlogDbContext>(options =>
+            services.AddDbContext<Models.VeggieFaceContext>(options =>
                 options.UseSqlite("Data Source=database.db"));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

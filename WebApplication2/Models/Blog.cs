@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace WebApplication2.Models
 {
-    [Display(Name="Veggies")]
     public class Blog
     {
         public int Id { get; set; }
@@ -16,15 +15,10 @@ namespace WebApplication2.Models
         public string Text { get; set; }
         [Display(Name="Harvested On")]
         public DateTime PostedOn { get; set; }
-    }
+        [Display(Name="Picture")]
+        public string ImageFilePath { get; set; }
 
-    public class BlogDbContext : DbContext
-    {
-        public DbSet<Blog> Blogs { get; set; }
-
-        public BlogDbContext(DbContextOptions<BlogDbContext> options) : base(options)
-        {
-
-        }
+        public int UserId { get; set; }
+        public string FilterName { get; set; }
     }
 }

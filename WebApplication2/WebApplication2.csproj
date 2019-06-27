@@ -17,9 +17,19 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="Data\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="images\pangolin.jpg" />
+    <None Remove="database.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Migrations\20190626190355_Blogs.Designer.cs" />
+    <Compile Remove="Migrations\20190626190355_Blogs.cs" />
+    <Compile Remove="Migrations\BlogDbContextModelSnapshot.cs" />
+    <Compile Remove="Migrations\20190627153107_InitialCreate.cs" />
+    <Compile Remove="Migrations\VeggieFaceContextModelSnapshot.cs" />
+    <Compile Remove="Migrations\20190627153107_InitialCreate.Designer.cs" />
   </ItemGroup>
 </Project>

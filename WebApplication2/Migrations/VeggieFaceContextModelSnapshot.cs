@@ -7,8 +7,8 @@ using WebApplication2.Models;
 
 namespace WebApplication2.Migrations
 {
-    [DbContext(typeof(BlogDbContext))]
-    partial class BlogDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(VeggieFaceContext))]
+    partial class VeggieFaceContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -21,13 +21,31 @@ namespace WebApplication2.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("FilterName");
+
+                    b.Property<string>("ImageFilePath");
+
                     b.Property<DateTime>("PostedOn");
 
                     b.Property<string>("Text");
 
+                    b.Property<int>("UserId");
+
                     b.HasKey("Id");
 
                     b.ToTable("Blogs");
+                });
+
+            modelBuilder.Entity("WebApplication2.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Username");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }
