@@ -1,4 +1,4 @@
-@model WebApplication2.Models.User
+﻿@model WebApplication2.Models.User
 
 @{
     ViewData["Title"] = "Details";
@@ -17,6 +17,10 @@
             @Html.DisplayFor(model => model.Username)
         </dd>
     </dl>
+ <!--  
+     TODO: display all posts for this user
+     -->
+
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
