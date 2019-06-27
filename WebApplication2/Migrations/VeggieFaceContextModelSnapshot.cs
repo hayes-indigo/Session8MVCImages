@@ -23,7 +23,7 @@ namespace WebApplication2.Migrations
 
                     b.Property<string>("FilterName");
 
-                    b.Property<string>("ImageFilePath");
+                    b.Property<byte[]>("Image");
 
                     b.Property<DateTime>("PostedOn");
 

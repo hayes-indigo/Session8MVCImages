@@ -9,11 +9,19 @@ using Microsoft.EntityFrameworkCore;
 using WebApplication2.Models;
 using Microsoft.AspNetCore.Http;
 
+
 namespace WebApplication2.Controllers
 {
     public class BlogsController : Controller
     {
         private readonly VeggieFaceContext _context;
+
+        public byte[] ConvertToBytes(IFormFile image)
+        {
+            System.IO.MemoryStream iVeggie = new System.IO.MemoryStream();
+            image.CopyTo(iVeggie);
+            return iVeggie.ToArray();
+        }
 
         public BlogsController(VeggieFaceContext context)
         {
@@ -23,11 +31,12 @@ namespace WebApplication2.Controllers
         // GET: Blogs
         public async Task<IActionResult> Index()
         {
+
             return View(await _context.Blogs.ToListAsync());
         }
 
         // GET: Blogs/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id, Blog Blog)
         {
             if (id == null)
             {
@@ -40,6 +49,7 @@ namespace WebApplication2.Controllers
             {
                 return NotFound();
             }
+
 
             return View(blog);
         }
@@ -55,8 +65,22 @@ namespace WebApplication2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Blog blog, IFormFile picture)
+        //public async Task<IActionResult> Create(Blog blog, IFormFile picture)
+        //{
+        //    blog.PostedOn = DateTime.Now;
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        _context.Add(blog);
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    return View(blog);
+        //}
+
+        public async Task<IActionResult> Create(Blog blog, IFormFile ImageData)
         {
+            blog.Image = ConvertToBytes(ImageData);
             blog.PostedOn = DateTime.Now;
 
             if (ModelState.IsValid)

@@ -15,7 +15,7 @@ namespace WebApplication2.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Text = table.Column<string>(nullable: true),
                     PostedOn = table.Column<DateTime>(nullable: false),
-                    ImageFilePath = table.Column<string>(nullable: true),
+                    Image = table.Column<byte[]>(nullable: true),
                     UserId = table.Column<int>(nullable: false),
                     FilterName = table.Column<string>(nullable: true)
                 },

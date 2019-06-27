@@ -15,8 +15,9 @@ namespace WebApplication2.Models
         public string Text { get; set; }
         [Display(Name="Harvested On")]
         public DateTime PostedOn { get; set; }
+
         [Display(Name="Picture")]
-        public string ImageFilePath { get; set; }
+        public byte[] Image { get; set; }
 
         public int UserId { get; set; }
         public string FilterName { get; set; }

@@ -9,7 +9,7 @@ using WebApplication2.Models;
 namespace WebApplication2.Migrations
 {
     [DbContext(typeof(VeggieFaceContext))]
-    [Migration("20190627154720_InitialCreate")]
+    [Migration("20190627181005_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace WebApplication2.Migrations
 
                     b.Property<string>("FilterName");
 
-                    b.Property<string>("ImageFilePath");
+                    b.Property<byte[]>("Image");
 
                     b.Property<DateTime>("PostedOn");
 
